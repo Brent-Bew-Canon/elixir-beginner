@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pattern Matching 1- Elixir Beginner</title>
-    <link rel="stylesheet" href="dist/output.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../dist/output.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
@@ -44,24 +44,28 @@
                 </div>
                 <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                     <div class="flex flex-shrink-0 items-center">
-                        <img class="block h-12 w-auto lg:hidden" src="assets/logo.svg" alt="Your Company">
-                        <img class="hidden h-14 w-auto lg:block" src="assets/logo.svg" alt="Your Company">
+                        <a href="../index.html"><img class="block h-12 w-auto lg:hidden" src="../assets/logo.svg"
+                                alt="Your Company "></a>
+                        <a href="../index.html"><img class="hidden h-14 w-auto lg:block" src="../assets/logo.svg"
+                                alt="Your Company"></a>
                     </div>
-                    <div class="hidden sm:ml-6 sm:block">
-                        <!-- <div class="flex space-x-4">
-                            Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" 
-                            <a href="#" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium"
-                                aria-current="page">Dashboard</a>
+                    <div class="hidden sm:ml-6 sm:flex sm:items-end">
+                        <div class="flex space-x-4 ">
+                            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700
+                            hover:text-white" -->
+                            <a href="../blog.html"
+                                class=" text-gray-500  hover:bg-gray-800 hover:text-white rounded-md px-3 py-2  text-lg font-medium"
+                                aria-current="page">All Posts</a>
+
+                            <!-- <a href="#"
+                                class=" text-gray-500 hover:bg-gray-800 hover:text-white rounded-md px-3 py-2 text-lg  font-medium">Team</a>
 
                             <a href="#"
-                                class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Team</a>
+                                class="text-gray-500 hover:bg-gray-800 hover:text-white rounded-md px-3 py-2 text-lg  font-medium">Projects</a>
 
                             <a href="#"
-                                class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Projects</a>
-
-                            <a href="#"
-                                class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Calendar</a>
-                        </div> -->
+                                class="text-gray-500 hover:bg-gray-800 hover:text-white rounded-md px-3 py-2 text-lg  font-medium">Calendar</a> -->
+                        </div>
                     </div>
                 </div>
                 <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
@@ -73,9 +77,9 @@
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
                         </svg>
-                    </button> -->
+                    </button>
 
-                    <!-- Profile dropdown -->
+               Profile dropdown -->
                     <!-- <div class="relative ml-3">
                         <div>
                             <button type="button"
@@ -131,6 +135,7 @@
             </div>
         </div>
     </nav>
+
     <main>
 
 
@@ -138,62 +143,73 @@
 
         <div class="container mx-auto pt-4  sm:max-w-lg  md:max-w-xl lg:max-w-2xl xl:max-w-4xl ">
             <div class="columns-1 sm:text-lg md:text-xlg lg:text-2xl xl:text-3xl font-bold">
-                <img src="assets/rubic.jpg" alt="" class="">
+                <img src="../assets/rubic.jpg" alt="" class="">
                 <h1 class="text-center pt-4 pb-4">Pattern Matching 1: First Look</h1>
             </div>
-            <div class="columns-1">
+        </div>
+        <div class="container mx-auto sm:max-w-lg  md:max-w-xl lg:max-w-2xl xl:max-w-4xl">
+            <div class="columns-1 ml-2 mr-2 md:mx-auto">
                 <p>Everyone who has gone through basic algebra is familiar with the idea of variable assignment. For
-                    example, you know what I’m talking about when I say x = 1. The left side is now equal, or assigned,
+                    example, you know what I’m talking about when I say x = 1. The left side is now equal, or
+                    assigned,
                     to the right-hand side.
-                <p>In Elixir, that concept is carried over like in many programming languages. However, there’s a bit
+                <p>In Elixir, that concept is carried over like in many programming languages. However, there’s a
+                    bit
                     of a twist in how Elixir deals with that. I can say:</p>
-                <p>x =1.</p>
+                <p class="bg-slate-100 text-center">x =1.</p>
                 <p>But I can also say:</p>
-                <p>1 = x.</p>
-                <p>When elixir sees 1 = x, it looks to both sides of the equals sign to see if they are the same value.
+                <p class="bg-slate-100 text-center">1 = x.</p>
+                <p>When elixir sees 1 = x, it looks to both sides of the equals sign to see if they are the same
+                    value.
                     In this case it is true and they are equal.
                     If I now say:</p>
-                <p>2 = x</p>
-                <p>then Elixir will throw an error because it sees that x is 1 and not 2, so there’s a mismatch in the
+                <p class="bg-slate-100 text-center">2 = x</p>
+                <p>Elixir will throw an error because it sees that x is 1 and not 2, so there’s a mismatch in the
                     pattern. Alternatively,</p>
-                <p>1 = x</p>
+                <p class="bg-slate-100 text-center">1 = x</p>
                 <p>is just fine in this case and is a true pattern match.</p>
-                <p>It’s important to keep that simple pattern matching principle in mind as we increase in complexity.
+                <p>It’s important to keep that simple pattern matching principle in mind as we increase in
+                    complexity.
                     Let’s look at pattern matching when dealing with lists.</p>
                 <p>Let’s say we have a list</p>
-                <p>[1, 2, 3, 4]</p>
+                <p class="bg-slate-100 text-center">[1, 2, 3, 4]</p>
                 <p>We can assign variables to those locations like so:</p>
-                <p>[first, second, third, fourth] = [1, 2, 3, 4]</p>
+                <p class="bg-slate-100 text-center">[first, second, third, fourth] = [1, 2, 3, 4]</p>
                 <p>This satisfies Elixir’s pattern matching requirements as there are four elements on the left hand
                     side and four on the right. This is great for accessing data that gets put into a list.</p>
                 <p>If we type one of those variables now, we get the associated assigned value.</p>
-                <p>Second = 2</p>
-                <p>Fourth = 4</p>
+                <p class="bg-slate-100 text-center">second = 2</p>
+                <p class="bg-slate-100 text-center">fourth = 4</p>
                 <p>What we can’t do is this:</p>
-                <p>[first, second, fourth] = [1, 2, 3, 4]</p>
-                <p> This will throw an error as the pattern is not matched on each side. Both sides of the equal sign
+                <p class="bg-slate-100 text-center">[first, second, fourth] = [1, 2, 3, 4]</p>
+                <p> This will throw an error as the pattern is not matched on each side. Both sides of the equal
+                    sign
                     must have the same number of elements to match.
                     This concept is useful to not only assign variables, but also for error checking as you’ve seen
                     here.</p>
                 <p>If you just need to access some of the data and don’t care about assigning variables to the rest,
                     you can use an underscore _ to represent it instead.</p>
-                <p>[first, second, third, _ ] = [1, 2, 3, 4]</p>
-                <p>That underscore is sort of a catchall that tells Elixir we really don’t care about the last element
+                <p class="bg-slate-100 text-center">[first, second, third, _ ] = [1, 2, 3, 4]</p>
+                <p>That underscore is sort of a catchall that tells Elixir we really don’t care about the last
+                    element
                     of data here so just ignore it.</p>
-                <p> First = 1</p>
-                <p>Second = 2</p>
-                <p>Third = 3</p>
-                <p>Now let’s say we only wanted the first element and didn’t care about the last 3 numbers. Instead of
+                <p class="bg-slate-100 text-center">first = 1</p>
+                <p class="bg-slate-100 text-center">second = 2</p>
+                <p class="bg-slate-100 text-center">third = 3</p>
+                <p>Now let’s say we only wanted the first element and didn’t care about the last 3 numbers. Instead
+                    of
                     typing in 3 underscores to represent each element like this…</p>
-                <p>[first, _, _, _ ] = [1, 2, 3, 4]</p>
+                <p class="bg-slate-100 text-center">[first, _, _, _ ] = [1, 2, 3, 4]</p>
                 <p>…we can use the pipe symbol with one underscore like this:</p>
-                <p>[first | _] = [1, 2, 3, 4]</p>
+                <p class="bg-slate-100 text-center">[first | _ ] = [1, 2, 3, 4]</p>
                 <p>Using the pipe symbol in conjunction with the underscore satisfies Elixir’s pattern matching and
                     tells Elixir to ignore the rest of the data.</p>
-                <p>First = 1</p>
-                <p> There’s a lot more to pattern matching than what we’ve covered here, but it’s a great first look at
+                <p class="bg-slate-100 text-center">first = 1</p>
+                <p> There’s a lot more to pattern matching than what we’ve covered here, but it’s a great first look
+                    at
                     it and may help you to wrap your head around the concept.</p>
             </div>
+
         </div>
     </main>
 
