@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- npm run dev -->
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elixir Beginner - Home</title>
-    <link rel="stylesheet" href="dist/output.css">
+    <title>Regex 1- Elixir Beginner</title>
+    <link rel="stylesheet" href="../dist/output.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
@@ -54,7 +53,7 @@
                         <div class="flex space-x-4 ">
                             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700
                             hover:text-white" -->
-                            <a href="blog.html"
+                            <a href="../blog.html"
                                 class=" text-gray-500  hover:bg-gray-800 hover:text-white rounded-md px-3 py-2  text-lg font-medium"
                                 aria-current="page">All Posts</a>
 
@@ -136,22 +135,85 @@
             </div>
         </div>
     </nav>
+
     <main>
 
 
 
 
-        <div
-            class="container mx-auto pt-4  sm:max-w-lg  md:max-w-xl lg:max-w-2xl xl:max-w-4xl sm:text-lg md:text-xlg lg:text-2xl xl:text-3xl ">
-            <div class="columns-1 sm:text-lg md:text-xlg lg:text-2xl xl:text-3xl ">
-                <img src="assets/maps.jpg" alt="" class="">
-                <h1 class="text-center pt-4 pb-4 font-bold">Elixir Beginner - A blog on learning Elixir topics</h1>
-                <p>I created this blog as a way to document my learning of Elixir conecepts, and possibly to help out
-                    any other beginners out there. <br><br> I noticed that most resources out there on learning Elixir
-                    are geared
-                    toward highly experienced developers. Use this resource if you are not an experienced developer and
-                    are working to learn some Elixir topics.</p>
+        <div class="container mx-auto pt-4  sm:max-w-lg  md:max-w-xl lg:max-w-2xl xl:max-w-4xl ">
+            <div class="columns-1 sm:text-lg md:text-xlg lg:text-2xl xl:text-3xl font-bold">
+                <img src="https://celadonbooks.com/wp-content/uploads/2020/03/what-is-a-mystery.jpg"
+                    alt="Magnifying glass on stack of code books" class="">
+                <h1 class="text-center pt-4 pb-4">Regular Expressions 1: Decoding the Code</h1>
             </div>
+        </div>
+        <div class="container mx-auto sm:max-w-lg  md:max-w-xl lg:max-w-2xl xl:max-w-4xl">
+            <div class="columns-1 ml-2 mr-2 md:mx-auto">
+                <p>Like what the heck is this stuff? I almost gave up on coding when I first saw these.
+                    However, with practice and patience, I can read and use them now.</p>
+                <p>Don’t get me wrong, when you place me in front of a regular expression it takes me several minutes to
+                    digest what is actually going on still. </p>
+                <p>Let’s start with a complex example right out of the gate:</p>
+                <p class="bg-slate-100 text-center"> My_reg_expression = ~r{\/(\w+)\?id=(\d+)}</p>
+                <p>Don’t panic! I’m going to walk you through this step-by-step. First of all, the goal of this
+                    particular regular expression is to capture the path of a URL that will look like one of these:</p>
+                <p class="bg-slate-100 text-center">/blog?id=2</p>
+                <p class="bg-slate-100 text-center">/site?id=3</p>
+                <p class="bg-slate-100 text-center">/pumpkin?id=8</p>
+                <p class="bg-slate-100 text-center">/whatever?id=0</p>
+                <p>Get the pattern? Let’s highlight the characters that actually mean what they look like:</p>
+                <p class="bg-slate-100 text-center">My_reg_expression = ~r{\ <span class="bg-yellow-200">/</span>
+                    (\w+)\<span class="bg-yellow-200">?id=</span>(\d+)}</p>
+                <p class="bg-slate-100 text-center"><span class="bg-yellow-200">/</span>blog <span
+                        class="bg-yellow-200">?id=</span>2</p>
+                <p>So these highlighted characters are what they are. In other words, the expression is looking for the
+                    URL and pulling those exact characters out. </p>
+                <p>Now we can safely ignore those characters knowing what they are. Next, let’s move on to another easy
+                    part.</p>
+                <p class="bg-slate-100 text-center">My_reg_expression = <span class="bg-yellow-200">~r{</span>\/<span
+                        class="bg-yellow-200">(</span>\w+<span class="bg-yellow-200">)</span>\?id=<span
+                        class="bg-yellow-200">(</span>\d+<span class="bg-yellow-200">)}</span></p>
+                <p>The ~ combined with the r is called a sigil. That’s simply how we tell Elixir to run this as a
+                    regular expression (regex). The curly braces {} contain the regular expression.
+                    The parentheses () are also a simple character that just groups whatever’s inside them together.
+                    This will make more sense later, but it’s really that simple.
+                </p>
+                <p>Just like that we are half-way there! Now, the more complicated pieces: </p>
+                <p class="bg-slate-100 text-center">My_reg_expression = ~r{\/(<span
+                        class="bg-yellow-200">\w+</span>)\?id=(<span class="bg-yellow-200">\d+</span>)}</p>
+                <p>This is where it gets a little more tricky. The \w means look for normal characters like a,b,c or
+                    1,2,3. That special combo of \w represents that functionality. </p>
+                <p>The \d is similar, but only looks for numbers like 1,2,3. </p>
+                <p>Finally, the + sign at the end of both of those means to look for one or more values. Alternatively,
+                    omitting the + would return just one character. </p>
+                <p>The last piece is to understand the final two backslashes:</p>
+                <p class="bg-slate-100 text-center">My_reg_expression = ~r{<span
+                        class="bg-yellow-200">\</span>/(\w+)<span class="bg-yellow-200">\</span>?id=(\d+)}</p>
+                <p>We talked about in the very first step how there were some characters that we simply wanted to pull
+                    directly out of the URL without any special modifications or parameters. </p>
+                <p>These backslashes signal to do that. So really, I’d highlight it like this:</p>
+                <p class="bg-slate-100 text-center">My_reg_expression = ~r{<span
+                        class="bg-yellow-200">\/</span>(\w+)<span class="bg-yellow-200">\?id=</span>(\d+)}</p>
+                <p>So each highlighted backslash is telling Elixir that the next characters in the expression should be
+                    taken literally instead of being used as a code for something else.
+                    Thus, we get the forward slash / and the ?id= as results from our expression.
+                </p>
+                <p>That wasn’t so bad right? This was just one example of what regular expressions look like and can do.
+                    Take a minute to look it over again and comprehend what each character is doing.</p>
+                <p class="bg-slate-100 text-center">My_reg_expression = ~r{\/(\w+)\?id=(\d+)}</p>
+                <p>Obviously, it’s vital to know what each symbol and symbol combination means if you want to get
+                    anywhere with regular expressions. Each programming language may use a different “flavor” of
+                    regexes, but most have similar components.</p>
+                <p>Elixir is based heavily on Perl programming regular expressions. I would suggest studying a document
+                    like this cheat sheet: <a href="https://www.geeksforgeeks.org/perl-regex-cheat-sheet/"
+                        class="text-red-700">https://www.geeksforgeeks.org/perl-regex-cheat-sheet/</a>
+                </p>
+                <p>Hope this helped! I’ll be practicing regular expressions from here-on-out. Let me know if this helped
+                    you and if you’d like to see more content on this topic.</p>
+                <p>Cheers!</p>
+            </div>
+
         </div>
     </main>
 
