@@ -17,7 +17,7 @@
             <div class="relative flex h-16 items-center justify-between">
                 <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
                     <!-- Mobile menu button-->
-                    <button type="button"
+                    <button type="button" id="mobile-icon"
                         class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
                         aria-controls="mobile-menu" aria-expanded="false">
                         <span class="sr-only">Open main menu</span>
@@ -121,17 +121,8 @@
         <div class="hidden" id="mobile-menu">
             <div class="space-y-1 px-2 pb-3 pt-2">
                 <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                <a href="#" class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium"
-                    aria-current="page">Dashboard</a>
-
-                <a href="#"
-                    class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Team</a>
-
-                <a href="#"
-                    class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Projects</a>
-
-                <a href="#"
-                    class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Calendar</a>
+                <a href="../blog.html" class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium"
+                    aria-current="page">All Posts</a>
             </div>
         </div>
     </nav>
@@ -150,7 +141,8 @@
         </div>
         <div class="container mx-auto sm:max-w-lg  md:max-w-xl lg:max-w-2xl xl:max-w-4xl">
             <div class="columns-1 ml-2 mr-2 md:mx-auto">
-                <p>Like what the heck is this stuff? I almost gave up on coding when I first saw these.
+                <p>When you first see one, you might think to yourself "Like what the heck is this stuff?" I almost gave
+                    up on coding when I first saw these.
                     However, with practice and patience, I can read and use them now.</p>
                 <p>Don’t get me wrong, when you place me in front of a regular expression it takes me several minutes to
                     digest what is actually going on still. </p>
@@ -217,7 +209,7 @@
         </div>
     </main>
 
-
+    <script src="../js/script.js"></script>
 </body>
 
 </html>
