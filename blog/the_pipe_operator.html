@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- npm run dev -->
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elixir Beginner - Home</title>
-    <link rel="stylesheet" href="dist/output.css">
+    <title>Pipe Operator- Elixir Beginner</title>
+    <link rel="stylesheet" href="../dist/output.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
@@ -54,7 +53,7 @@
                         <div class="flex space-x-4 ">
                             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700
                             hover:text-white" -->
-                            <a href="blog.html"
+                            <a href="../blog.html"
                                 class=" text-gray-500  hover:bg-gray-800 hover:text-white rounded-md px-3 py-2  text-lg font-medium"
                                 aria-current="page">All Posts</a>
 
@@ -122,35 +121,80 @@
         <div class="hidden" id="mobile-menu">
             <div class="space-y-1 px-2 pb-3 pt-2">
                 <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                <a href="blog.html" class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium"
+                <a href="../blog.html" class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium"
                     aria-current="page">All Posts</a>
             </div>
         </div>
     </nav>
+
     <main>
 
 
 
 
-        <div
-            class="container mx-auto pt-4  sm:max-w-lg  md:max-w-xl lg:max-w-2xl xl:max-w-4xl sm:text-lg md:text-xlg lg:text-2xl xl:text-3xl ">
-            <div class="columns-1 sm:text-lg md:text-xlg lg:text-2xl xl:text-3xl ">
-                <img src="assets/maps.jpg" alt="" class="">
-                <h1 class="text-center pt-4 pb-4 font-bold">Elixir Beginner - A blog on learning Elixir topics</h1>
-                <p class="px-3">I created this blog as a way to document my learning of Elixir conecepts, and
-                    possibly to help out
-                    any other beginners out there. <br><br> I noticed that most resources out there on learning Elixir
-                    are geared
-                    toward highly experienced developers. Use this resource if you are not an experienced developer and
-                    are working to learn some Elixir topics.</p>
+        <div class="container mx-auto pt-4  sm:max-w-lg  md:max-w-xl lg:max-w-2xl xl:max-w-4xl ">
+            <div class="columns-1 sm:text-lg md:text-xlg lg:text-2xl xl:text-3xl font-bold">
+                <img src="https://images.pexels.com/photos/1381938/pexels-photo-1381938.jpeg"
+                    alt="Stack of metal pipes with ends showing" class="">
+                <h1 class="text-center pt-4 pb-4">Using the Pipe Operator: Key for Cleaner Code</h1>
             </div>
+        </div>
+        <div class="container mx-auto sm:max-w-lg  md:max-w-xl lg:max-w-2xl xl:max-w-4xl">
+            <div class="columns-1 ml-2 mr-2 md:mx-auto">
+                <p>Here’s a post on a handy little trick that you will use and see all over Elixir: the pipe operator “
+                    |> “</p>
+                <p>The pipe operator is a shortcut that saves you some keystrokes and cleans up your code to look a lot
+                    nicer.</p>
+                <p>The way the pipe operator is used is when calling functions within functions. You can always call
+                    functions the classic way by using their name and passing in the arguments like so:</p>
+
+                <p class="bg-slate-100 pl-3 pt-2">def special_function() do </p>
+                <p class="bg-slate-100 pl-8">a = 5</p>
+                <p class="bg-slate-100 pl-8">b = 6</p>
+                <p class="bg-slate-100 pl-8">c = 5 + 6</p>
+                <p class="bg-slate-100 pl-8">my_function(c)</p>
+                <p class="bg-slate-100 pl-3 mb-3">end</p>
+                <p>The function special_function assigns values of a and b and then adds them together with the
+                    assignment for c. Then, it calls another function, my_function, and passes the c argument in. </p>
+                <p>However, there is a cleaner way to write this code with the pipe operator:</p>
+                <p class="bg-slate-100 pl-3 pt-2">def special_function() do </p>
+                <p class="bg-slate-100 pl-8">a = 5</p>
+                <p class="bg-slate-100 pl-8">b = 6</p>
+                <p class="bg-slate-100 pl-8">c = 5 + 6</p>
+                <p class="bg-slate-100 pl-8">|> my_function()</p>
+                <p class="bg-slate-100 pl-3 mb-3">end</p>
+                <p>Essentially, the |> is pulling the value from the line above and plugging it into the function. In
+                    this case that is c. It’s important to note that c is passed in as the first argument to the
+                    function and it is not necessary to type c in as an argument. </p>
+                <p>This doesn’t seem to be all that shorter or cleaner with this simple example. Let’s imagine that we
+                    have multiple functions like so:</p>
+                <p class="bg-slate-100 pl-3 pt-2">def special_function() do </p>
+                <p class="bg-slate-100 pl-8">a = 5</p>
+                <p class="bg-slate-100 pl-8">b = 6</p>
+                <p class="bg-slate-100 pl-8">c = 5 + 6</p>
+                <p class="bg-slate-100 pl-8">|> my_function()</p>
+                <p class="bg-slate-100 pl-8">|> function_2()</p>
+                <p class="bg-slate-100 pl-8">|> function_3(b)</p>
+                <p class="bg-slate-100 pl-8">|> function_4(a,b)</p>
+                <p class="bg-slate-100 pl-3 mb-3">end</p>
+                <p>Now you can start to see how this operator helps save space and keystrokes. One thing to notice now
+                    is that we have typed in an argument for function_3 and two arguments for function_4.</p>
+                <p>Knowing what we know about the pipe operator, we can tell that those functions must require multiple
+                    arguments. For example, function_3 is receiving whatever the output is that is returned from
+                    function_2 AND is also receiving the argument of b. </p>
+                <p>Since the pipe operator passes in the first argument automatically, any additional arguments still
+                    need to be passed in manually like we just discovered. </p>
+                <p>Now you know how to use the pipe operator to write cleaner Elixir code when dealing with multiple
+                    functions. </p>
+            </div>
+
         </div>
     </main>
 
     <footer class="h-48">
     </footer>
 
-    <script src="js/script.js"></script>
+    <script src="../js/script.js"></script>
 </body>
 
 </html>
